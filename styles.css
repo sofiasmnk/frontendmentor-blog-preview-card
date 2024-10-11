@@ -10,15 +10,12 @@
   --color-gray-950: hsl(0, 0%, 7%);
 
   --font-family: Figtree, sans-serif;
-  
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.5rem;
-
   --font-line-height: 150%;
-
   --font-weight-medium: 500;
-  --font-weight-extrabold: 800;
+  --font-weight-bold: 800;
 
   --spacing-200: 1.5rem;
   --spacing-150: 0.75rem;
@@ -26,15 +23,29 @@
   --spacing-50: 0.25rem;
 
   --border-radius: 1.25rem;
-
   --shadow-solid: 8px 8px 0px 0px;
 }
 
+/* at small screens reduce font size, author profile image, and bold font weight */
+@media screen and (max-width: 27rem) {
+  :root {
+    --font-size-sm: 0.75rem;
+    --font-size-base: 0.875rem;
+    --font-size-lg: 1.25rem;
+    --font-weight-bold: 700;
+  }
+  .author img {
+    --image-size: 1.5rem;
+  }
+}
+
+/* reset */
 * {
   margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: inherit;
+  text-decoration: none;
   box-sizing: border-box;
 }
 
@@ -42,6 +53,7 @@ html {
   height: 100%;
 }
 
+/* base styles */
 body {
   height: 100%;
   font-family: var(--font-family);
@@ -51,7 +63,7 @@ body {
   color: var(--color-gray-950)
 }
 
-main {
+.container {
   display: grid;
   grid-template-rows: 100vh min-content;
   justify-content: center;
@@ -60,23 +72,19 @@ main {
 
 .text-heading {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-extrabold);
-}
-
-.text-small {
-  font-size: var(--font-size-sm);
-}
-
-.text-bold {
-  font-weight: var(--font-weight-extrabold);
-}
-
-.text-faded {
-  color: var(--color-gray-500);
+  font-weight: var(--font-weight-bold);
+  a {
+    color: currentColor;
+  }
+  a:hover {
+    color: var(--color-yellow);
+  }
 }
 
 .card {
-  width: 24rem;
+  width: min(24rem, calc(100vw - 3rem));
+  margin-inline: 1.5rem;
+
   display: flex;
   flex-direction: column;
   gap: var(--spacing-200);
@@ -102,6 +110,7 @@ main {
   display: flex;
   gap: var(--spacing-150);
   align-items: center;
+  font-size: var(--font-size-sm);
   --image-size: 2rem;
 
   & img {
@@ -112,10 +121,36 @@ main {
 }
 
 .tag {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-extrabold);
-  padding: var(--spacing-50) var(--spacing-150);
-  background-color: var(--color-yellow);
   width: min-content;
+  padding: var(--spacing-50) var(--spacing-150);
+  
+  background-color: var(--color-yellow);
   border-radius: var(--spacing-50);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+/* utility classes */
+.text-small {
+  font-size: var(--font-size-sm);
+}
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
+.text-faded {
+  color: var(--color-gray-500);
+}
+
+/* attribution styles */
+footer.attribution {
+  text-align: center;
+  padding-block: 0.5rem;
+  a {
+    font-weight: var(--font-weight-bold);
+    color: currentColor;
+  }
+  a:hover {
+    border-block-end: 2px solid currentColor;
+  }
 }
