@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main>
+    <main class="container">
       <section class="card">
         <img src="assets/images/illustration-article.svg" alt="Vectorial illustration in yellow, black and white. It says '&lt;/&gt;', surrounded by abstract decorations in flat colors.">
-        <header>
-          <span class="tag">Learning</span>
-          <p>Published
-            <time datetime="2023-12-21">21 Dec 2023</time></p>
-          <h1>HTML & CSS foundations</h1>
-        </header>
-        <p>These languages are the backbone of every website, defining structure, content, and presentation.</p>
+        <div class="card-content">
+          <header>
+            <span class="tag">Learning</span>
+            <p class="text-small">Published
+              <time datetime="2023-12-21">21 Dec 2023</time></p>
+            <h1 class="text-heading">HTML & CSS foundations</h1>
+          </header>
+          <p class="text-faded">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+        </div>
         <div class="author">
           <img src="assets/images/image-avatar.webp" alt="">
-          <span>Greg Hooper</span>
+          <span class="text-small text-bold">Greg Hooper</span>
         </div>
       </section>
     </main>
